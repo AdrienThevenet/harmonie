@@ -1,0 +1,27 @@
+uuid: a3971c58-0d40-448c-ac8e-ebedaa2be225
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - front_hmm
+_core:
+  default_config_hash: gmxYWWHmgbe0Pnv8y48ZLSLH5mEHejOjAP6RLxUfdzU
+id: front_hmm_account_menu
+theme: front_hmm
+region: header
+weight: -4
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: "Menu du compte de l'utilisateur"
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

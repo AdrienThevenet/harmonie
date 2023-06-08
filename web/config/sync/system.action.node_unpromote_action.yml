@@ -1,0 +1,13 @@
+uuid: 9e6b4888-3758-4e46-9153-0f35c16fce72
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: JBptjnfuOMtsdKygklXxoOgeOCTMtQxlkymjnnj-cC0
+id: node_unpromote_action
+label: "Retirer un contenu de la page d'accueil"
+type: node
+plugin: node_unpromote_action
+configuration: {  }

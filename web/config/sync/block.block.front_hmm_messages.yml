@@ -1,0 +1,22 @@
+uuid: 446b03ad-1b99-46c4-a84d-6ba6f11cf48c
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - front_hmm
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: front_hmm_messages
+theme: front_hmm
+region: header
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Messages de statut'
+  label_display: '0'
+  provider: system
+visibility: {  }

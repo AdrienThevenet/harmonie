@@ -1,0 +1,22 @@
+uuid: d9d9e8a7-a9b6-4105-82a9-3ac35f99bf64
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - front_hmm
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: front_hmm_powered
+theme: front_hmm
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Propulsé par Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

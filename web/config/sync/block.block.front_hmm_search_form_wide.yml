@@ -1,0 +1,23 @@
+uuid: 9f0d6601-319d-4511-8056-55182cc4a9af
+langcode: fr
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - front_hmm
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: front_hmm_search_form_wide
+theme: front_hmm
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Formulaire de recherche (large)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 5c0c9062-1b6b-48c8-8a65-78480f52be03
+langcode: fr
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - front_hmm
+_core:
+  default_config_hash: yEBET0cqDbk8dkWzaJw-8CKft0961VBflsISoSR6Lj8
+id: front_hmm_search_form_narrow
+theme: front_hmm
+region: header
+weight: -4
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Formulaire de recherche (étroit)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }
