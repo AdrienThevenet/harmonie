@@ -6,8 +6,8 @@ const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally');
 module.exports = {
   stats: 'normal',
   entry: {
-    "css/style": 'scss/style.scss',
-    "js/script.min": "js/script.js",
+    "css/style": './scss/style.scss',
+    "js/script.min": "./js/script.js",
   },
   output: {
     filename: '[name].js',

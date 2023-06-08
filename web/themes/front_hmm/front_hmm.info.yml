@@ -1,6 +1,6 @@
 # core: 8|9
 type: theme
-base theme: false
+base theme: olivero
 
 name: 'Front HMM'
 description: 'Built to use bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.'
