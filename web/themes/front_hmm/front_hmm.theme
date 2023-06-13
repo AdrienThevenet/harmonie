@@ -1,0 +1,117 @@
+<?php
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\node\NodeInterface;
+
+/*****************************************/
+/*** Theme Hmm Suggestion HOOK Alter ***/
+/*****************************************/
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for html document templates.
+ *
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ */
+function front_hmm_theme_suggestions_html_alter(array &$suggestions, array $variables, $hook): void {
+  $node = Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+      $suggestions[] = $hook . '__' . $node->bundle();
+  }
+}
+
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for region templates.
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ */
+function front_hmm_theme_suggestions_region_alter(array &$suggestions, array $variables, $hook): void {
+  if ($node = Drupal::routeMatch()->getParameter('node')) {
+    if (is_object($node)) {
+      $content_type = $node->bundle();
+      $suggestions = $hook . '__' . $variables['elements']['#region'];
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * @param array $suggestions
+ * @param array $variables
+ */
+function front_hmm_theme_suggestions_form_alter(array &$suggestions, array $variables): void {
+  $suggestions[] = 'form__' . $variables['element']['#form_id'];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ * @param array $suggestions
+ * @param array $variables
+ * @return void
+ */
+function front_hmm_theme_suggestions_page_alter(array &$suggestions, array $variables): void {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if (is_object($node)) {
+      $content_type = $node->bundle();
+      $suggestions[] = 'page__' . $content_type;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page title templates.
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ * @return void
+ */
+function front_hmm_theme_suggestions_page_title_alter(array &$suggestions, array $variables, $hook): void {
+
+  /** @var NodeInterface $node */
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = $hook . '__node';
+    $suggestions[] = $hook . '__node__' . $node->bundle();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form element templates.
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ * @return void
+ */
+function front_hmm_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook): void {
+
+  $current_route_match = \Drupal::getContainer()->get('current_route_match');
+  $route_match = $current_route_match->getRouteName();
+
+  if (isset($variables['element']['#type'])) {
+    $suggestions[] = $hook . "__" . $variables['element']['#type'];
+  }
+
+  if (isset($variables['element']['#webform'])) {
+    $suggestions[] = 'form_element__' . $variables['element']['#webform'];
+    $suggestions[] = 'form_element__' . $variables['element']['#type'];
+    $suggestions[] = 'form_element__' . $variables['element']['#webform'] . "__" . $variables['element']['#type'];
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ * @param array $suggestions
+ * @param array $variables
+ */
+function front_hmm_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
+  if ($variables['elements']['#base_plugin_id'] === 'block_content' && isset($variables['elements']['content']['#block_content'])) {
+    /** @var BlockContent $block */
+    $block = $variables['elements']['content']['#block_content'];
+    if (is_object($block)) {
+      $block_type = $block->bundle();
+      $suggestions[] = 'block__' . $block_type;
+    }
+  }
+}
